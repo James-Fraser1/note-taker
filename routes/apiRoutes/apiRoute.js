@@ -1,68 +1,37 @@
 // READING JSON DATA
 const fs = require('fs');
-
+const { get } = require('http');
+const router = require('express').Router();
 // Calling UUID (npm package)
-const UUID = require("uuid");
+const { v4: uuidv4 } = require('uuid');
 
 // Routes
-module.exports = function (app) {
-    app.get("/api/notes", (req, res) => {
-        console.log("response from getting notes");
+router.get("/notes", (req, res) => {
+    console.log("response from getting notes");
 
-        let data = fs.readFileSync("./Develop/db/db.json", "utf8");
+    // let data = fs.readFileSync("./Develop/db/db.json", "utf8");
 
-        res.json(JSON.parse(data));
-    });
+    // res.json(JSON.parse(data));
+});
 
-    app.post("/api/notes", (req, res) => {
-        const Note1 = {
-            ...req.body,
-            id: UUID(),
-        };
+// let data = fs.readFileSync("./Develop/db/db.json", "utf8");
 
-        console.log("response from posting notes")
+// const dataJSON = JSON.parse(data);
 
-        let data = fs.readFileSync("./Develop/db/db.json", "utf8");
+// dataJSON.push(uuidv4);
 
-        const dataJSON = JSON.parse(data);
+// fs.writeFile("./Develop/db/db.json", JSON.stringify(dataJSON)),
+//     (err, text) => {
+//         if (err) {
+//             console.error(err)
+//             return;
+//         }
+//         console.log("Yes", text);
+//     };
+// console.log("New Note has been created!");
 
-        dataJSON.push(Note1);
+// res.json(data);
 
-        fs.writeFile("./Develop/db/db.json", JSON.stringify(dataJSON)),
-            (err, text) => {
-                if (err) {
-                    console.error(err)
-                    return;
-                }
-                console.log("Yes", text);
-            };
-        console.log("New Note has been created!");
+// router.post("./Develop/public/notes.html")
 
-        res.json(data);
-
-    });
-
-    
-
-};
-// router.get('/animals', (req, res) => {
-//   let results = animals;
-//   if (req.query) {
-//     results = filterByQuery(req.query, results);
-//   }
-//   res.json(results);
-// });
-
-// router.post('/animals', (req, res) => {
-//   // set id based on what the next index of the array will be
-//   req.body.id = animals.length.toString();
-
-//   if (!validateAnimal(req.body)) {
-//     res.status(400).send('The animal is not properly formatted.');
-//   } else {
-//     const animal = createNewAnimal(req.body, animals);
-//     res.json(animal);
-//   }
-// });
-
-// module.exports = router;
+module.exports = router;
