@@ -34,7 +34,7 @@ WHEN I click on the Write icon in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 ```
 
-![8C59E5CA-A9E7-4B9B-B17F-E2D616FBC0E2](![image](https://user-images.githubusercontent.com/105461444/185198900-82ae6883-ea2d-419d-87f1-3ca8b26520a9.png))
+![note img](https://user-images.githubusercontent.com/105461444/185200861-86d62b00-1f4d-43c7-8cba-082d325abbc9.png)
 
 ## **Installation &#128391;**
 1. Clone the repository and download it to your computer
