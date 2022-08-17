@@ -8,8 +8,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
-// app.use('/api', apiRoute);
-// app.use('/', htmlRoute);
+app.use('/api', apiRoute);
+app.use('/', htmlRoute);
 console.log(apiRoute)
 console.log(htmlRoute)
 app.listen(PORT, () => {

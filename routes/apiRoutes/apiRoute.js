@@ -1,37 +1,36 @@
 // READING JSON DATA
+const { response } = require('express');
 const fs = require('fs');
-const { get } = require('http');
 const router = require('express').Router();
-// Calling UUID (npm package)
-const { v4: uuidv4 } = require('uuid');
+const store = require('../../db/store');
 
 // Routes
 router.get("/notes", (req, res) => {
-    console.log("response from getting notes");
-
-    // let data = fs.readFileSync("./Develop/db/db.json", "utf8");
-
-    // res.json(JSON.parse(data));
+console.log("Doesn't run past this")
+    store.get(req.body)
+        .then((note) => {
+            return res.json(note)
+        })
+        .catch((error) => {
+            response.status500.json(error)
+            console.log(error)
+        })
 });
 
-// let data = fs.readFileSync("./Develop/db/db.json", "utf8");
+router.post("./public/notes.html", (req, res) => {
+console.log("You figured it out!")
+    store.add(note)
+        .then((note) => {
+            return res.json(note)
+        });
+});
 
-// const dataJSON = JSON.parse(data);
+router.delete("./public/notes.html", (req, res) => {
+    store.delete(req.params.id)
+        .then((note) => {
+            return res.json(note)
+        });
+});
 
-// dataJSON.push(uuidv4);
-
-// fs.writeFile("./Develop/db/db.json", JSON.stringify(dataJSON)),
-//     (err, text) => {
-//         if (err) {
-//             console.error(err)
-//             return;
-//         }
-//         console.log("Yes", text);
-//     };
-// console.log("New Note has been created!");
-
-// res.json(data);
-
-// router.post("./Develop/public/notes.html")
 
 module.exports = router;
