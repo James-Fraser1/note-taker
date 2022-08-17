@@ -50,7 +50,8 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ## **Usage**
 
-**[Click to deploy the application https://james-fraser1.github.io/note-taker/**
+**[Click to deploy the application](https://james-fraser1.github.io/note-taker/)**
+
 
 Initiate the application using the command line prompt
 
