@@ -43,7 +43,9 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 &#10148; npm init
 
 &#10148; npm install inquirer@8.2.4
+
 &#10148; npm install express
+
 &#10148; npm install uuid
 
 ## **Usage**
