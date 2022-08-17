@@ -9,11 +9,15 @@ class store {
 
     get() {
         const theseNotes = [];
-        return this.read()
+        return this.read(data)
             .then((data) => {
                 theseNotes.concat(JSON.parse(data))
                 return theseNotes
             });
+    };
+
+    write(data) {
+        return writeFromFile('./db/db.json', json.stringify(data))
     };
 
     read() {
@@ -21,8 +25,7 @@ class store {
     };
 
     add(note) {
-        // USING UUID
-        // Formatted note
+        // Using UUID create a new note format
         const { name, body } = note;
         const newNote = { name, body, id: uuidv4() }
             // if/then null statement making someone return data in note
@@ -41,10 +44,6 @@ class store {
                 newNote
             })
     };
-
-    write(data) {
-        return writeFromFile('./db/db.json', json.stringify(data))
-    }
 
     delete(note) {
     };
