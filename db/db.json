@@ -1,1 +1,1 @@
-[{"title":"Test Title","text":"Test text","id":1},{"id":2},{"id":3},{"id":4},{"id":5},[{"title":"James' Note","text":"note info","id":1},{"id":2},{"id":3},{"id":4},{"id":5}],[{"title":"James' Note","text":"note info","id":1},{"id":2},{"id":3},{"id":4},{"id":5}],[{"title":"James' Note","text":"note info","id":1},{"id":2},{"id":3},{"id":4},{"id":5}]]
+[{"title":"Test Title","text":"Test text","id":1},{"title":"Note 1","text":"new note","id":"7b574aea-f0fb-433e-81c8-d55e23060990"},{"title":"another note","text":"3","id":"0f61420a-21b0-4fe1-bf01-98ff098f53d3"}]

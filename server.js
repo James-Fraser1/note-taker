@@ -10,8 +10,8 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use('/api', apiRoute);
 app.use('/', htmlRoute);
-console.log(apiRoute)
-console.log(htmlRoute)
+// console.log(apiRoute)
+// console.log(htmlRoute)
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
 });

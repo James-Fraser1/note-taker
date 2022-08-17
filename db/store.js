@@ -9,7 +9,7 @@ class store {
 
     get() {
         const theseNotes = [];
-        return this.read(data)
+        return this.read()
             .then((data) => {
                 theseNotes.concat(JSON.parse(data))
                 return theseNotes
@@ -29,20 +29,27 @@ class store {
         const { name, body } = note;
         const newNote = { name, body, id: uuidv4() }
             // if/then null statement making someone return data in note
-            .then((allNotes) => {
-                [
-                    ...allNotes,
-                    newNote
-                ]
-            })
+            // .then((allNotes) => {
+            //     [
+            //         ...allNotes,
+            //         newNote
+            //     ]
+            // })
 
-            .then((data) => {
-                this.write(data)
-            })
+            // .then((data) => {
+            //     this.write(data)
+            // })
 
-            .then(() => {
-                newNote
-            })
+            // .then(() => {
+            //     newNote
+            // })
+        if (!name || !body) {
+            throw new Error('Either name or body or both are blank')
+        }
+        return this.get()
+        .then((notes) => [...notes, newNote])
+        .then((updatedNote) => this.write(updatedNote))
+        .then(() => newNote)
     };
 
     delete(note) {

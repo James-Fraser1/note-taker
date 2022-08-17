@@ -10,6 +10,7 @@ if (window.location.pathname === '/notes') {
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
+  console.log(saveNoteBtn)
 }
 
 // Show an element
@@ -52,6 +53,8 @@ const deleteNote = (id) =>
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
+
+console.log("activeNote", activeNote)
 
   if (activeNote.id) {
     noteTitle.setAttribute('readonly', true);
@@ -98,9 +101,11 @@ const handleNoteDelete = (e) => {
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {
   e.preventDefault();
+  console.log("2nd console log", JSON.parse(e.target.parentElement.getAttribute('data-note')))
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
   renderActiveNote();
 };
+
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
@@ -133,8 +138,8 @@ const renderNoteList = async (notes) => {
     const spanEl = document.createElement('span');
     spanEl.classList.add('list-item-title');
     spanEl.innerText = text;
+    console.log("yep", spanEl)
     spanEl.addEventListener('click', handleNoteView);
-
     liEl.append(spanEl);
 
     if (delBtn) {
